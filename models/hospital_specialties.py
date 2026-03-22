@@ -10,3 +10,5 @@ class hospital_specialty(models.Model):
 
 
     name = fields.Char(default="nothing")
+    doctor_ids = fields.One2many("hospital.doctor", "specialty_id")
+
