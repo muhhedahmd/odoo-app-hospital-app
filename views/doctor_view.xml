@@ -4,11 +4,12 @@
         <field name="name">hospital.doctor.view.tree</field>
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
-            <tree string="">
-                <field name="name" />
-                <field name="user_id" />
-                <field name="available" />
-                <field name="specialty_id" />
+            <tree sample="1">
+                <field name="name" decoration-bf="1" />
+                <field name="user_id" widget="many2one_avatar" optional="show" />
+                <field name="specialty_id" optional="show" />
+                <field name="category_ids" widget="many2many_tags" optional="show" />
+                <field name="license_no" optional="hide" />
             </tree>
         </field>
     </record>
@@ -19,12 +20,31 @@
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
-                    <group>
+                    <group string="Basic Info">
                         <field name="name" />
-                        <field name="user_id" />
-                        <field name="available" />
+                        <field name="user_id" widget="many2one_avatar" />
                         <field name="specialty_id" />
+                        <field name="category_ids" widget="many2many_tags" />
+                        <field name="license_no" />
                     </group>
+                    <notebook>
+                        <page string="Availability">
+                            <field name="availability_ids">
+                                <tree editable="bottom">
+                                    <field name="day" string="Day" />
+                                    <field name="start_time" string="Start Time" widget="float_time" />
+                                    <field name="end_time" string="End Time" widget="float_time" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="category">
+                            <field name="category_ids">
+                                <tree editable="bottom">
+                                    <field name="name" string="category name" widget="" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
