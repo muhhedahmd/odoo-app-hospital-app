@@ -3,6 +3,7 @@
 from odoo  import models ,fields
 
 class hospital_doctor(models.Model): 
+    _inherit = "hr.employee"
     _name = "hospital.doctor"
     _description = "hospital doctor" 
 
@@ -13,6 +14,16 @@ class hospital_doctor(models.Model):
     name = fields.Char(string="Doctor Name")
     user_id = fields.Many2one("res.users" ,"user")
     specialty_id = fields.Many2one("hospital.specialty")
-    consultation_fee = fields.Float(default=0.00)
-    available = fields.Boolean(default=True)
+
+    consultation_fee = fields.Float(default=5.00)
+    license_no = fields.Char(string="License No")
+    avalible_days = fields.Selection([
+        ("monday", "Monday"),
+        ("tuesday", "Tuesday"),
+        ("wednesday", "Wednesday"),
+        ("thursday", "Thursday"),
+        ("friday", "Friday"),
+        ("saturday", "Saturday"),
+        ("sunday", "Sunday"),
+    ])
 
