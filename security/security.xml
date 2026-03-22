@@ -1,0 +1,17 @@
+<odoo>
+    <record id="hospital_category_security" model="ir.module.category">
+        <field name="name"> hospital</field>
+    </record>
+
+    <record id="admin_groups_hospital" model="res.groups">
+        <field name="name"> admins </field>
+        <field name="category_id" ref="hospital_app.hospital_category_security" />
+    </record>
+
+    <record id="users_groups_hospital" model="res.groups">
+        <field name="name"> users </field>
+        <field name="category_id" ref="hospital_app.hospital_category_security" />
+    </record>
+
+
+</odoo>

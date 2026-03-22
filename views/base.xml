@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="hospital_app_view_base" name="Doctors" />
+
+    <menuitem name="Doctor menus" id="doctor_menu_items" parent="hospital_app_view_base" />
+
+</odoo>
